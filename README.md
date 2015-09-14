@@ -20,7 +20,7 @@ To load some test data, run the following script : ```./test-data/load-test-1.sh
 
 You can now open the author instance at this address ```http://<dev_machine_ip>:3001/``` and the website at this address ```http://<dev_machine_ip>:3001/home``` where ```dev_machine_ip``` is the IP of the dev docker-machine: ```docker-machine ip dev```
 
-**note: The host and port of the services are hardcoded in the definition of the registry, do not forget to adapt the files ./ms-frontend-resources/services/*.yaml+++
+**note: The host and port of the services are hardcoded in the definition of the registry, do not forget to adapt the files ./ms-frontend-resources/services/*.yaml**
 
 ## Materials
 - Slides: http://www.slideshare.net/Magnolia_CMS/using-magnolia-in-a-microservices-architecture
