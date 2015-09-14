@@ -1,7 +1,5 @@
 # Magnolia ASK
 
-## Pre-requisites
-
 ## Installation
 1. Install [Docker Toolbox](https://www.docker.com/toolbox) if you don't have docker on your local environment.
 2. Clone the repo: ```git clone https://github.com/nicolasbarbe/magnolia-ask.git```
@@ -16,3 +14,9 @@ Before starting Magnolia Ask, please make sure that your environment is started 
 - or ```./start-env.sh dev```
 
 **note: It seems that a race condition prevents starting all the services at the same time through the Makefile or docker-compose. I recommend instead to use the ''start-env.sh'' script that will start the services one by one.**
+
+You can now open the author instance at this address ```http://<dev_machine_ip>:3001/``` where ```dev_machine_ip``` is the IP of the dev docker-machine: ```docker-machine ip dev```
+
+## Known issues
+
+## Todos
