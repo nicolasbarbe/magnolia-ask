@@ -15,6 +15,8 @@ Before starting Magnolia Ask, please make sure that your environment is started 
 
 **note: It seems that a race condition prevents starting all the services at the same time through the Makefile or docker-compose. I recommend instead to use the ''start-env.sh'' script that will start the services one by one.**
 
+To load some test data, run the following script : ```./test-data/load-test-1.sh```
+
 You can now open the author instance at this address ```http://<dev_machine_ip>:3001/``` where ```dev_machine_ip``` is the IP of the dev docker-machine: ```docker-machine ip dev```
 
 ## Known issues
