@@ -1,3 +1,18 @@
 [submodule "ms-users-commands"]
 	path = ms-users-commands
 	url = https://github.com/nicolasbarbe/ms-users-commands.git
+[submodule "ms-users-queries"]
+	path = ms-users-queries
+	url = https://github.com/nicolasbarbe/ms-users-queries.git
+[submodule "ms-discussions-queries"]
+	path = ms-discussions-queries
+	url = https://github.com/nicolasbarbe/ms-discussions-queries
+[submodule "ms-discussions-commands"]
+	path = ms-discussions-commands
+	url = https://github.com/nicolasbarbe/ms-discussions-commands
+[submodule "ms-answers-queries"]
+	path = ms-answers-queries
+	url = https://github.com/nicolasbarbe/ms-answers-queries
+[submodule "ms-answers-commands"]
+	path = ms-answers-commands
+	url = https://github.com/nicolasbarbe/ms-answers-commands
