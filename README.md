@@ -20,6 +20,9 @@ To load some test data, run the following script : ```./test-data/load-test-1.sh
 
 You can now open the author instance at this address ```http://<dev_machine_ip>:3001/``` where ```dev_machine_ip``` is the IP of the dev docker-machine: ```docker-machine ip dev```
 
+## Slides
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/xQrpB3sCUpuMx8" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/Magnolia_CMS/using-magnolia-in-a-microservices-architecture" title="Using Magnolia in a Microservices Architecture" target="_blank">Using Magnolia in a Microservices Architecture</a> </strong> from <strong><a href="//www.slideshare.net/Magnolia_CMS" target="_blank">Magnolia</a></strong> </div>
+
 ## Known issues
 
 ## Todos
