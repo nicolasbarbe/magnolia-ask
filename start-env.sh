@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "Starting environment $1 ..."
+eval "$(docker-machine env dev)"
+make start env=$1 service=kafka
+sleep 10s
+make start env=$1 service=mongodb
+sleep 10s
+make start env=$1 service=users-commands
+sleep 10s
+make start env=$1 service=discussions-commands
+sleep 10s
+make start env=$1 service=answers-commands
+sleep 10s
+make start env=$1 service=users-queries
+sleep 10s
+make start env=$1 service=discussions-queries
+sleep 10s
+make start env=$1 service=answers-queries
+sleep 10s
+# make start env=$1 service=author-frontend
+echo "Environment $1 succesfuly started."

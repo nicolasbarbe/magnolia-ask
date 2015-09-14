@@ -1,0 +1,16 @@
+## 
+## Author Frontend
+##
+
+frontend:
+  image: nicolasbarbe/ms-frontend:1.0-SNAPSHOT
+  restart: on-failure[1]
+  command: run
+  environment:
+    - DB_TYPE=derby
+
+frontendResources:
+  image: alpine:3.2
+  command: true
+
+

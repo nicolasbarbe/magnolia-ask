@@ -1,0 +1,3 @@
+[submodule "ms-users-commands"]
+	path = ms-users-commands
+	url = https://github.com/nicolasbarbe/ms-users-commands.git

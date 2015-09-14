@@ -1,0 +1,175 @@
+## 
+## Author Frontend
+##
+
+author-frontend:
+  extends:
+    file: common.yml
+    service: frontend
+  environment:
+    - INSTANCE_TYPE=author
+    - DEVELOP_MODE=true
+  links:
+    - discussions-commands:dc
+    - discussions-queries:dq
+    - users-commands:uc
+    - users-queries:uq
+  ports:
+    - "3001:8080"
+  volumes: 
+    - ../ms-frontend-resources:/var/opt/magnolia/ms-frontend-resources
+
+## 
+## Public Frontend
+##
+
+# publicFrontend:
+#   extends:
+#     file: common.yml
+#     service: frontend
+#   environment:
+#     - INSTANCE_TYPE=public
+#     - DEVELOP_MODE=true
+#   ports:
+#     - "3000:8080"
+#   volumes: 
+#     - ../ms-frontend-resources:/var/opt/magnolia/ms-frontend-resources
+
+## 
+## Discussions
+## 
+
+discussions-commands:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-discussions-commands
+  command: bash -c "go get -d && go install && ms-discussions-commands"
+  ports:
+    - "3002:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_discussions_commands
+  volumes:
+    - ../ms-discussions-commands/src/github.com/nicolasbarbe/ms-discussions-commands:/go/src/github.com/nicolasbarbe/ms-discussions-commands
+
+discussions-queries:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-discussions-queries
+  command: bash -c "go get -d && go install && ms-discussions-queries"
+  ports:
+    - "3004:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_discussions_queries
+    USERS_QUERIES_CS: 192.168.99.100:3005
+  volumes:
+    - ../ms-discussions-queries/src/github.com/nicolasbarbe/ms-discussions-queries:/go/src/github.com/nicolasbarbe/ms-discussions-queries
+
+## 
+## Answers
+## 
+
+answers-commands:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-answers-commands
+  command: bash -c "go get -d && go install && ms-answers-commands"
+  ports:
+    - "3006:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_answers_commands
+  volumes:
+    - ../ms-answers-commands/src/github.com/nicolasbarbe/ms-answers-commands:/go/src/github.com/nicolasbarbe/ms-answers-commands
+
+answers-queries:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-answers-queries
+  command: bash -c "go get -d && go install && ms-answers-queries"
+  ports:
+    - "3007:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_answers_queries
+    USERS_QUERIES_CS: 192.168.99.100:3005
+  volumes:
+    - ../ms-answers-queries/src/github.com/nicolasbarbe/ms-answers-queries:/go/src/github.com/nicolasbarbe/ms-answers-queries
+
+
+##
+## Users
+##
+
+users-commands:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-users-commands
+  command: bash -c "go get -d && go install && ms-users-commands"
+  ports:
+    - "3003:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_users_commands
+  volumes:
+    - ../ms-users-commands/src/github.com/nicolasbarbe/ms-users-commands:/go/src/github.com/nicolasbarbe/ms-users-commands
+
+users-queries:
+  image: golang:1.4
+  working_dir: /go/src/github.com/nicolasbarbe/ms-users-queries
+  command: bash -c "go get -d && go install && ms-users-queries"
+  ports:
+    - "3005:8080"
+  links:
+    - kafka:kafka
+    - mongodb:mongodb 
+  environment:
+    KAFKA_BROKERS: "kafka:9092"
+    MONGODB_CS: 192.168.99.100:27017
+    MONGODB_DB: dev_users_queries
+  volumes:
+    - ../ms-users-queries/src/github.com/nicolasbarbe/ms-users-queries:/go/src/github.com/nicolasbarbe/ms-users-queries
+
+##
+## Infrastructure
+## 
+zookeeper:
+  image: wurstmeister/zookeeper
+  ports:
+    - "2181:2181"
+
+kafka:
+  image: wurstmeister/kafka:0.8.2.0
+  # name: kafka
+  # hostname: kafka
+  ports:
+    - "9092:9092"
+  links:
+    - zookeeper:zk
+  environment:
+    KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+    KAFKA_HEAP_OPTS: -Xmx512m
+    # KAFKA_ADVERTISED_PORT: 9092
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+mongodb:
+  image: mongo:3.1.7
+  ports: 
+    - "27017:27017"

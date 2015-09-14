@@ -1,0 +1,43 @@
+## 
+## Author Frontend
+##
+
+authorFrontend:
+  extends:
+    file: common.yml
+    service: frontend
+  environment:
+    - INSTANCE_TYPE=author
+  ports:
+    - "3001:8080"
+  volumes_from: 
+    - authorFrontendResources
+
+authorFrontendResources:
+  extends:
+    file: common.yml
+    service: frontendResources
+  volumes:
+    - /var/opt/magnolia/ms-discussions-resources
+
+## 
+## Public Frontend
+##
+
+publicFrontend:
+  extends:
+    file: common.yml
+    service: frontend
+  environment:
+    - INSTANCE_TYPE=public
+  ports:
+    - "3000:8080"
+  volumes_from:
+    - publicFrontendResources
+
+publicFrontendResources:
+  extends:
+    file: common.yml
+    service: frontendResources
+  volumes:
+    - /var/opt/magnolia/ms-discussions-resources
