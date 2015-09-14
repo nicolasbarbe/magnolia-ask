@@ -1,8 +1,8 @@
 #!/bin/bash
-
-DISCUSSIONS_COMMANDS_CS=192.168.99.100:3002
-USERS_COMMANDS_CS=192.168.99.100:3003
-ANSWERS_COMMANDS_CS=192.168.99.100:3006
+IP="docker-machine ip dev"
+DISCUSSIONS_COMMANDS_CS=$IP:3002
+USERS_COMMANDS_CS=$IP:3003
+ANSWERS_COMMANDS_CS=$IP:3006
 
 # create users
 curl -H "Content-Type: application/json" -d '{   "id": "nbarbe",   "firstName": "Nicolas", "lastName": "Barbe", "memberSince": "2015-08-09T16:09:53+00:00"  }' http://$USERS_COMMANDS_CS/api/v1/commands/createUser

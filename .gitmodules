@@ -16,3 +16,9 @@
 [submodule "ms-answers-commands"]
 	path = ms-answers-commands
 	url = https://github.com/nicolasbarbe/ms-answers-commands
+[submodule "ms-frontend"]
+	path = ms-frontend
+	url = https://github.com/nicolasbarbe/ms-frontend
+[submodule "ms-frontend-resources"]
+	path = ms-frontend-resources
+	url = https://github.com/nicolasbarbe/ms-frontend-resources.git
