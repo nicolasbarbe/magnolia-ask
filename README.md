@@ -2,11 +2,11 @@
 Magnolia ASK is a fake Question & Answer website that illustrates the usage of microservices with [Magnolia](http://magnolia-cms.com/) as a facade. The microservices are written in Go and are communicating to each other either through pub/sub (using [kafka](http://kafka.apache.org/)) or req/res (using HTTP).
 
 ## Installation
-1. Install [Docker Toolbox](https://www.docker.com/toolbox) if you don't have docker on your local environment.
+1. Install [Docker Toolbox](https://www.docker.com/toolbox) if you don't have docker on your local environment
 2. Clone the repo: ```git clone https://github.com/nicolasbarbe/magnolia-ask.git```
-3. Create a local machine called dev: ```docker-machine create --driver virtualbox dev```.
-4. Start your machine: ```docker-machine start dev```.
-5. Initialize Docker environment variables: ```eval "$(docker-machine env dev)"```.
+3. Create a local machine called dev: ```docker-machine create --driver virtualbox dev```
+4. Start your machine: ```docker-machine start dev```
+5. Initialize Docker environment variables: ```eval "$(docker-machine env dev)"```
 
 ## Usage
 Before starting Magnolia Ask, please make sure that your environment is started and correctly setup (see above). Magnolia Ask can be started either using docker-compose, the Makefile or the shell script provided in the distribution:
