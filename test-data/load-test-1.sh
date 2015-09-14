@@ -1,5 +1,5 @@
 #!/bin/bash
-IP="docker-machine ip dev"
+IP=`docker-machine ip dev`
 DISCUSSIONS_COMMANDS_CS=$IP:3002
 USERS_COMMANDS_CS=$IP:3003
 ANSWERS_COMMANDS_CS=$IP:3006
