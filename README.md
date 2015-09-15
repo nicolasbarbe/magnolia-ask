@@ -30,7 +30,7 @@ You can now open the author instance at this address ```http://<dev_machine_ip>:
 
 ## Known issues
 
-## Todos
+## Not covered
 - Forms: Submitting new questions and answers
 - Votes: Voting and rating questions and answers
 - Prod environment: Sample of a deployment procedure in production
