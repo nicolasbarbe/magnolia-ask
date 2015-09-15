@@ -1,6 +1,8 @@
 # Magnolia ASK
 Magnolia ASK is a fake Question & Answer website that illustrates the usage of microservices with [Magnolia](http://magnolia-cms.com/) as a facade. The microservices are written in Go and are communicating to each other either through pub/sub (using [kafka](http://kafka.apache.org/)) or req/res (using HTTP).
 
+![Magnolia Ask](/images/screenshot.png)
+
 ## Installation
 1. Install [Docker Toolbox](https://www.docker.com/toolbox) if you don't have docker on your local environment
 2. Clone the repo: ```git clone --recursive https://github.com/nicolasbarbe/magnolia-ask.git```
