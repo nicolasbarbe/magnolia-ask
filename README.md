@@ -1,4 +1,4 @@
-# Magnolia ASK
+# Magnolia ASK - A microservices architecture sample
 Magnolia ASK is a fake Question & Answer website that illustrates the usage of microservices with [Magnolia](http://magnolia-cms.com/) as a facade. The microservices are written in Go and are communicating to each other either through pub/sub (using [kafka](http://kafka.apache.org/)) or req/res (using HTTP).
 
 ![Magnolia Ask](/images/screenshot.png)
@@ -31,3 +31,8 @@ You can now open the author instance at this address ```http://<dev_machine_ip>:
 ## Known issues
 
 ## Todos
+- Forms: Submitting new questions and answers
+- Votes: Voting and rating questions and answers
+- Prod environment: Sample of a deployment procedure in production
+- Search : Integrating a search engine, ideally using the existing solr integration in Magnolia
+- Security : Demonstrating how to leverage Magnolia security and the users microservice
